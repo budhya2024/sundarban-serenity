@@ -1,0 +1,275 @@
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { motion } from "framer-motion";
+import { Shield, Award, Heart, Compass, Users, Target, Eye, Leaf } from "lucide-react";
+import galleryTiger from "@/assets/gallery-tiger.jpg";
+import galleryBoat from "@/assets/gallery-boat.jpg";
+
+const values = [
+  {
+    icon: Shield,
+    title: "Safety First",
+    description: "Your safety is our top priority. Our expert guides and well-maintained equipment ensure a secure adventure.",
+  },
+  {
+    icon: Heart,
+    title: "Passion for Nature",
+    description: "We're deeply passionate about the Sundarbans and committed to sharing its wonders responsibly.",
+  },
+  {
+    icon: Leaf,
+    title: "Eco-Friendly",
+    description: "We practice sustainable tourism to preserve the fragile ecosystem for future generations.",
+  },
+  {
+    icon: Award,
+    title: "Excellence",
+    description: "With 15+ years of experience, we deliver exceptional service that exceeds expectations.",
+  },
+];
+
+const team = [
+  {
+    name: "Rajiv Banerjee",
+    role: "Founder & Lead Guide",
+    experience: "18 years in wildlife tourism",
+  },
+  {
+    name: "Priya Mukherjee",
+    role: "Operations Manager",
+    experience: "12 years of tour planning",
+  },
+  {
+    name: "Arun Das",
+    role: "Senior Naturalist",
+    experience: "15 years studying Sundarban wildlife",
+  },
+];
+
+const About = () => {
+  return (
+    <main className="min-h-screen">
+      <Navbar />
+      
+      {/* Hero */}
+      <section className="relative pt-32 pb-24 bg-primary">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
+          >
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
+              About Sundarban Tours
+            </h1>
+            <p className="text-lg text-primary-foreground/80">
+              For over 15 years, we've been the trusted gateway to the magnificent 
+              Sundarbans, helping thousands of travelers experience the magic of 
+              the world's largest mangrove forest.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Story Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="text-secondary font-medium text-sm uppercase tracking-wider">
+                Our Story
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2 mb-6">
+                A Journey Born from Passion
+              </h2>
+              <div className="space-y-4 text-muted-foreground">
+                <p>
+                  Sundarban Tours was founded in 2009 by Rajiv Banerjee, a lifelong 
+                  nature enthusiast who grew up in the villages surrounding the 
+                  Sundarban delta. His deep connection to the land and its wildlife 
+                  inspired him to share this incredible ecosystem with the world.
+                </p>
+                <p>
+                  What started as small group expeditions has grown into the region's 
+                  most trusted travel agency, serving over 50,000 travelers from 
+                  across the globe. Yet, we've never lost sight of our core mission: 
+                  to provide authentic, sustainable, and life-changing experiences.
+                </p>
+                <p>
+                  Today, our team includes experienced naturalists, skilled boat 
+                  operators, and hospitality professionals who share our passion 
+                  for the Sundarbans and commitment to excellence.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <img
+                src={galleryTiger}
+                alt="Royal Bengal Tiger"
+                className="rounded-2xl shadow-elevated w-full h-[400px] object-cover"
+              />
+              <img
+                src={galleryBoat}
+                alt="Boat Safari"
+                className="absolute -bottom-8 -left-8 w-48 h-48 rounded-xl shadow-elevated object-cover border-4 border-background"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-24 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-card rounded-2xl p-8 shadow-soft"
+            >
+              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                <Target className="w-7 h-7 text-primary" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+                Our Mission
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                To provide safe, authentic, and memorable wildlife experiences 
+                while promoting conservation awareness and supporting local 
+                communities in the Sundarban region.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-card rounded-2xl p-8 shadow-soft"
+            >
+              <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6">
+                <Eye className="w-7 h-7 text-secondary" />
+              </div>
+              <h3 className="font-display text-2xl font-bold text-foreground mb-4">
+                Our Vision
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                To be the leading sustainable tourism operator in the Sundarbans, 
+                recognized globally for our commitment to wildlife conservation, 
+                community development, and exceptional travel experiences.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-secondary font-medium text-sm uppercase tracking-wider">
+              Our Values
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mt-2">
+              What Drives Us
+            </h2>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <value.icon className="w-8 h-8 text-primary" />
+                </div>
+                <h3 className="font-display text-xl font-semibold text-foreground mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-24 bg-primary">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-secondary font-medium text-sm uppercase tracking-wider">
+              Our Team
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mt-2">
+              Meet the Experts
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {team.map((member, index) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-24 h-24 rounded-full bg-secondary flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-10 h-10 text-secondary-foreground" />
+                </div>
+                <h3 className="font-display text-xl font-semibold text-primary-foreground mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-secondary font-medium text-sm mb-2">
+                  {member.role}
+                </p>
+                <p className="text-primary-foreground/60 text-sm">
+                  {member.experience}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+};
+
+export default About;
