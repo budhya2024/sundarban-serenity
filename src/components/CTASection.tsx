@@ -1,9 +1,14 @@
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import AOS from "aos";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import gallerySunset from "@/assets/gallery-sunset.jpg";
 
 export const CTASection = () => {
+  useEffect(() => {
+    AOS.refresh();
+  }, []);
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background */}
@@ -18,11 +23,9 @@ export const CTASection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="600"
           className="max-w-3xl mx-auto text-center"
         >
           <h2 className="font-display text-3xl md:text-5xl font-bold text-primary-foreground mb-6">
@@ -40,7 +43,7 @@ export const CTASection = () => {
               <Link to="/contact">Talk to an Expert</Link>
             </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

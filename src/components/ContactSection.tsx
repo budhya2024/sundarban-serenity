@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import AOS from "aos";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -38,6 +39,10 @@ export const ContactSection = () => {
   });
   const { toast } = useToast();
 
+  useEffect(() => {
+    AOS.refresh();
+  }, []);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
@@ -51,11 +56,9 @@ export const ContactSection = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="600"
           className="text-center mb-16"
         >
           <span className="text-secondary font-medium text-sm uppercase tracking-wider">
@@ -68,16 +71,11 @@ export const ContactSection = () => {
             Have questions about our tours? Want to customize your itinerary? 
             Get in touch with our travel experts.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <div data-aos="fade-right">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
@@ -136,23 +134,18 @@ export const ContactSection = () => {
                 Send Message
               </Button>
             </form>
-          </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <div
+            data-aos="fade-left"
             className="space-y-8"
           >
             {contactInfo.map((info, index) => (
-              <motion.div
+              <div
                 key={info.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
                 className="flex items-start gap-4"
               >
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -166,7 +159,7 @@ export const ContactSection = () => {
                     </p>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
 
             {/* Map Placeholder */}
@@ -182,7 +175,7 @@ export const ContactSection = () => {
                 title="Sundarban Location"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,9 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { motion } from "framer-motion";
+import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Star, Check, MapPin, Calendar } from "lucide-react";
 import tourPremium from "@/assets/tour-premium.jpg";
@@ -27,7 +30,6 @@ const packages = [
       "Photography stops",
       "Pick-up from Kolkata",
     ],
-    itinerary: ["6:00 AM - Pick-up from Kolkata", "10:00 AM - Arrive at Sundarban", "11:00 AM - Boat safari begins", "1:00 PM - Lunch at watchtower", "4:00 PM - Return journey"],
   },
   {
     id: 2,
@@ -48,7 +50,6 @@ const packages = [
       "All meals included",
       "Bonfire evening",
     ],
-    itinerary: ["Day 1: Travel, afternoon safari, camp setup", "Day 1 Evening: Bonfire & dinner", "Day 2: Early morning safari, village visit, return"],
   },
   {
     id: 3,
@@ -71,7 +72,6 @@ const packages = [
       "Mangrove walk",
       "Photography guidance",
     ],
-    itinerary: ["Day 1: Arrive, houseboat check-in, evening cruise", "Day 2: Full day safari, tiger territory, night safari", "Day 3: Sunrise safari, departure"],
   },
   {
     id: 4,
@@ -93,46 +93,36 @@ const packages = [
       "All meals included",
       "Post-processing workshop",
     ],
-    itinerary: ["Day 1: Arrival, gear check, sunset shoot", "Day 2: Tiger territory, hide photography", "Day 3: Bird photography, village portraits", "Day 4: Sunrise shoot, departure"],
   },
 ];
 
 const Packages = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
     <main className="min-h-screen">
       <Navbar />
-      
-      {/* Hero */}
-      <section className="relative pt-32 pb-24 bg-primary">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-              Tour Packages
-            </h1>
-            <p className="text-lg text-primary-foreground/80">
-              Choose from our carefully curated packages designed to give you 
-              the best Sundarban experience within your budget and timeline.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+
+      <PageHeader
+        title="Tour Packages"
+        subtitle="Choose from our carefully curated packages designed to give you the best Sundarban experience within your budget and timeline."
+        backgroundImage={tourPremium}
+      />
 
       {/* Packages */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="space-y-16">
             {packages.map((pkg, index) => (
-              <motion.div
+              <div
                 key={pkg.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                data-aos="fade-up"
                 className={`grid lg:grid-cols-2 gap-8 items-center ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
@@ -206,7 +196,7 @@ const Packages = () => {
                     </Button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -216,17 +206,17 @@ const Packages = () => {
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div>
+            <div data-aos="fade-up">
               <MapPin className="w-8 h-8 text-secondary mx-auto mb-4" />
               <h3 className="font-display text-lg font-semibold mb-2">Pick-up Available</h3>
               <p className="text-sm text-muted-foreground">Free pick-up from Kolkata included in all packages</p>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-delay="100">
               <Calendar className="w-8 h-8 text-secondary mx-auto mb-4" />
               <h3 className="font-display text-lg font-semibold mb-2">Flexible Dates</h3>
               <p className="text-sm text-muted-foreground">Tours available year-round, best season Oct-Mar</p>
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-delay="200">
               <Star className="w-8 h-8 text-secondary mx-auto mb-4" />
               <h3 className="font-display text-lg font-semibold mb-2">Satisfaction Guaranteed</h3>
               <p className="text-sm text-muted-foreground">Full refund if you don't love the experience</p>

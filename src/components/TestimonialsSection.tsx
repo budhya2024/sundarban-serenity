@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import AOS from "aos";
 import { Star, Quote } from "lucide-react";
 
 const testimonials = [
@@ -26,15 +27,17 @@ const testimonials = [
 ];
 
 export const TestimonialsSection = () => {
+  useEffect(() => {
+    AOS.refresh();
+  }, []);
+
   return (
     <section className="py-24 bg-primary">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="600"
           className="text-center mb-16"
         >
           <span className="text-secondary font-medium text-sm uppercase tracking-wider">
@@ -47,17 +50,15 @@ export const TestimonialsSection = () => {
             Don't just take our word for it. Here's what our guests have to say 
             about their Sundarban adventures with us.
           </p>
-        </motion.div>
+        </div>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <div
               key={testimonial.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-8 border border-primary-foreground/20"
             >
               <Quote className="w-10 h-10 text-secondary mb-4" />
@@ -84,7 +85,7 @@ export const TestimonialsSection = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
