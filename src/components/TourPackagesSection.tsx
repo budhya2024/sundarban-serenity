@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import AOS from "aos";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Clock, Users, Star, Check } from "lucide-react";
@@ -56,15 +57,17 @@ const packages = [
 ];
 
 export const TourPackagesSection = () => {
+  useEffect(() => {
+    AOS.refresh();
+  }, []);
+
   return (
     <section className="py-24 bg-muted">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="600"
           className="text-center mb-16"
         >
           <span className="text-secondary font-medium text-sm uppercase tracking-wider">
@@ -77,17 +80,15 @@ export const TourPackagesSection = () => {
             From quick day trips to immersive multi-day expeditions, we have 
             the perfect package to match your schedule and budget.
           </p>
-        </motion.div>
+        </div>
 
         {/* Packages Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {packages.map((pkg, index) => (
-            <motion.div
+            <div
               key={pkg.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className={`relative bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 group ${
                 pkg.popular ? "ring-2 ring-secondary" : ""
               }`}
@@ -104,7 +105,7 @@ export const TourPackagesSection = () => {
                 <img
                   src={pkg.image}
                   alt={pkg.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
@@ -153,22 +154,20 @@ export const TourPackagesSection = () => {
                   </Button>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* View All CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+        <div
+          data-aos="fade-up"
+          data-aos-delay="300"
           className="text-center mt-12"
         >
           <Button variant="outline" size="lg" asChild>
             <Link to="/packages">View All Packages</Link>
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

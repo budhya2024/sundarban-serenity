@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { PageHeader } from "@/components/PageHeader";
 import { X } from "lucide-react";
 import galleryTiger from "@/assets/gallery-tiger.jpg";
 import galleryBoat from "@/assets/gallery-boat.jpg";
@@ -31,6 +33,14 @@ const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   const filteredImages = selectedCategory === "All"
     ? galleryImages
     : galleryImages.filter((img) => img.category === selectedCategory);
@@ -38,32 +48,21 @@ const Gallery = () => {
   return (
     <main className="min-h-screen">
       <Navbar />
-      
-      {/* Hero */}
-      <section className="relative pt-32 pb-24 bg-primary">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto"
-          >
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-              Photo Gallery
-            </h1>
-            <p className="text-lg text-primary-foreground/80">
-              Explore stunning captures from the Sundarbans - from majestic tigers 
-              to breathtaking sunsets over the mangroves.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+
+      <PageHeader
+        title="Photo Gallery"
+        subtitle="Explore stunning captures from the Sundarbans - from majestic tigers to breathtaking sunsets over the mangroves."
+        backgroundImage={gallerySunset}
+      />
 
       {/* Gallery */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div
+            data-aos="fade-up"
+            className="flex flex-wrap justify-center gap-4 mb-12"
+          >
             {categories.map((category) => (
               <button
                 key={category}
@@ -80,44 +79,35 @@ const Gallery = () => {
           </div>
 
           {/* Gallery Grid */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredImages.map((image, index) => (
-              <motion.div
+              <div
                 key={image.alt}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
+                data-aos="fade-up"
+                data-aos-delay={index * 50}
                 className="relative aspect-[4/3] rounded-xl overflow-hidden group cursor-pointer"
                 onClick={() => setLightboxImage(image.src)}
               >
                 <img
                   src={image.src}
                   alt={image.alt}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-colors duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-primary-foreground font-medium">{image.alt}</p>
                   <span className="text-primary-foreground/70 text-sm">{image.category}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Lightbox */}
       {lightboxImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setLightboxImage(null)}
         >
           <button
@@ -132,7 +122,7 @@ const Gallery = () => {
             className="max-w-full max-h-[90vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
           />
-        </motion.div>
+        </div>
       )}
 
       <Footer />

@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import AOS from "aos";
 import { Shield, Award, Heart, Compass } from "lucide-react";
 import galleryTiger from "@/assets/gallery-tiger.jpg";
 
@@ -26,16 +27,18 @@ const features = [
 ];
 
 export const AboutSection = () => {
+  useEffect(() => {
+    AOS.refresh();
+  }, []);
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+          <div
+            data-aos="fade-right"
+            data-aos-duration="800"
             className="relative"
           >
             <div className="relative rounded-2xl overflow-hidden shadow-elevated">
@@ -47,11 +50,9 @@ export const AboutSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
             </div>
             {/* Floating Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+            <div
+              data-aos="fade-up"
+              data-aos-delay="300"
               className="absolute -bottom-8 -right-8 bg-card p-6 rounded-xl shadow-elevated max-w-xs"
             >
               <div className="flex items-center gap-4">
@@ -63,16 +64,11 @@ export const AboutSection = () => {
                   <p className="text-sm text-muted-foreground">In Wildlife Tourism</p>
                 </div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div data-aos="fade-left" data-aos-duration="800">
             <span className="text-secondary font-medium text-sm uppercase tracking-wider">
               About Us
             </span>
@@ -94,12 +90,10 @@ export const AboutSection = () => {
             {/* Features Grid */}
             <div className="grid sm:grid-cols-2 gap-6">
               {features.map((feature, index) => (
-                <motion.div
+                <div
                   key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
                   className="flex items-start gap-4"
                 >
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -109,10 +103,10 @@ export const AboutSection = () => {
                     <h4 className="font-semibold text-foreground mb-1">{feature.title}</h4>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

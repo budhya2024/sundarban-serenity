@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import AOS from "aos";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight } from "lucide-react";
@@ -8,38 +9,40 @@ import galleryBird from "@/assets/gallery-bird.jpg";
 
 const blogPosts = [
   {
+    slug: "best-time-to-visit-sundarbans",
     title: "Best Time to Visit Sundarbans: A Complete Guide",
     excerpt: "Discover the ideal seasons for tiger spotting, bird watching, and exploring the mangrove forests...",
     image: galleryTiger,
     date: "Jan 15, 2024",
-    category: "Travel Guide",
   },
   {
+    slug: "traditional-boat-safari",
     title: "Traditional Boat Safari: What to Expect",
     excerpt: "Everything you need to know about the iconic wooden boat safaris through the winding waterways...",
     image: galleryBoat,
     date: "Jan 10, 2024",
-    category: "Experience",
   },
   {
+    slug: "bird-watching-sundarbans",
     title: "Bird Watching in Sundarbans: Species to Spot",
     excerpt: "From Kingfishers to White-bellied Sea Eagles, discover the diverse avian life of the Sundarbans...",
     image: galleryBird,
     date: "Jan 5, 2024",
-    category: "Wildlife",
   },
 ];
 
 export const BlogSection = () => {
+  useEffect(() => {
+    AOS.refresh();
+  }, []);
+
   return (
     <section className="py-24 bg-muted">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="600"
           className="text-center mb-16"
         >
           <span className="text-secondary font-medium text-sm uppercase tracking-wider">
@@ -52,17 +55,17 @@ export const BlogSection = () => {
             Get inspired with travel stories, insider tips, and wildlife insights 
             from our expert guides and fellow travelers.
           </p>
-        </motion.div>
+        </div>
 
         {/* Blog Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
-            <motion.article
+            <Link
               key={post.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              to={`/blog/${post.slug}`}
+              data-aos="fade-up"
+              data-aos-duration="500"
+              data-aos-delay={index * 100}
               className="bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 group"
             >
               {/* Image */}
@@ -72,11 +75,6 @@ export const BlogSection = () => {
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium">
-                    {post.category}
-                  </span>
-                </div>
               </div>
 
               {/* Content */}
@@ -91,29 +89,25 @@ export const BlogSection = () => {
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                   {post.excerpt}
                 </p>
-                <Link
-                  to="/blog"
-                  className="inline-flex items-center gap-2 text-secondary font-medium hover:gap-3 transition-all"
-                >
+                <span className="inline-flex items-center gap-2 text-secondary font-medium group-hover:gap-3 transition-all">
                   Read More <ArrowRight className="w-4 h-4" />
-                </Link>
+                </span>
               </div>
-            </motion.article>
+            </Link>
           ))}
         </div>
 
         {/* View All CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+        <div
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="300"
           className="text-center mt-12"
         >
           <Button variant="outline" size="lg" asChild>
             <Link to="/blog">View All Articles</Link>
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
