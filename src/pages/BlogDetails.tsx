@@ -4,6 +4,7 @@ import AOS from "aos";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
+import { BlogSidebar } from "@/components/BlogSidebar";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter } from "lucide-react";
 import galleryTiger from "@/assets/gallery-tiger.jpg";
@@ -176,7 +177,6 @@ const BlogDetails = () => {
 
   useEffect(() => {
     AOS.refresh();
-    window.scrollTo(0, 0);
   }, [slug]);
 
   if (!post) {
@@ -194,8 +194,6 @@ const BlogDetails = () => {
     );
   }
 
-  const relatedPosts = blogPosts.filter((p) => p.id !== post.id).slice(0, 3);
-
   return (
     <main className="min-h-screen">
       <Navbar />
@@ -206,118 +204,89 @@ const BlogDetails = () => {
         backgroundImage={post.image}
       />
 
-      {/* Article Content */}
-      <article className="py-16 bg-background">
+      {/* Article Content with Sidebar */}
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            {/* Back Link */}
-            <Link
-              to="/blog"
-              data-aos="fade-right"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 font-medium"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Blog
-            </Link>
+          <div className="grid lg:grid-cols-3 gap-12">
+            {/* Main Content - Left Side */}
+            <div className="lg:col-span-2">
+              {/* Back Link */}
+              <Link
+                to="/blog"
+                data-aos="fade-right"
+                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 font-medium"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Blog
+              </Link>
 
-            {/* Meta */}
-            <div
-              data-aos="fade-up"
-              className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8 pb-8 border-b border-border"
-            >
-              <div className="flex items-center gap-2">
-                <User className="w-5 h-5" />
-                {post.author}
+              {/* Meta */}
+              <div
+                data-aos="fade-up"
+                className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8 pb-8 border-b border-border"
+              >
+                <div className="flex items-center gap-2">
+                  <User className="w-5 h-5" />
+                  {post.author}
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
+                  {post.date}
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  {post.readTime}
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="w-5 h-5" />
-                {post.date}
+
+              {/* Featured Image */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="100"
+                className="mb-10 rounded-2xl overflow-hidden shadow-elevated"
+              >
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-[400px] object-cover"
+                />
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" />
-                {post.readTime}
+
+              {/* Content */}
+              <div
+                data-aos="fade-up"
+                data-aos-delay="200"
+                className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+
+              {/* Share */}
+              <div
+                data-aos="fade-up"
+                className="mt-12 pt-8 border-t border-border"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="font-medium text-foreground flex items-center gap-2">
+                    <Share2 className="w-5 h-5" />
+                    Share this article:
+                  </span>
+                  <button className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
+                    <Facebook className="w-5 h-5" />
+                  </button>
+                  <button className="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
+                    <Twitter className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Featured Image */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="mb-10 rounded-2xl overflow-hidden shadow-elevated"
-            >
-              <img
-                src={post.image}
-                alt={post.title}
-                className="w-full h-[400px] object-cover"
+            {/* Sidebar - Right Side */}
+            <div className="lg:col-span-1">
+              <BlogSidebar
+                latestPosts={blogPosts}
+                currentPostId={post.id}
               />
             </div>
-
-            {/* Content */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-
-            {/* Share */}
-            <div
-              data-aos="fade-up"
-              className="mt-12 pt-8 border-t border-border"
-            >
-              <div className="flex items-center gap-4">
-                <span className="font-medium text-foreground flex items-center gap-2">
-                  <Share2 className="w-5 h-5" />
-                  Share this article:
-                </span>
-                <button className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                  <Facebook className="w-5 h-5" />
-                </button>
-                <button className="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                  <Twitter className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      {/* Related Posts */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2
-            data-aos="fade-up"
-            className="font-display text-2xl md:text-3xl font-bold text-foreground mb-8 text-center"
-          >
-            Related Articles
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {relatedPosts.map((relatedPost, index) => (
-              <Link
-                key={relatedPost.id}
-                to={`/blog/${relatedPost.slug}`}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 group"
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={relatedPost.image}
-                    alt={relatedPost.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <Calendar className="w-4 h-4" />
-                    {relatedPost.date}
-                  </div>
-                  <h3 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                    {relatedPost.title}
-                  </h3>
-                </div>
-              </Link>
-            ))}
           </div>
         </div>
       </section>
