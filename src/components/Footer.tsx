@@ -109,15 +109,15 @@ export const Footer = () => {
               © 2024 Sundarban Tours. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-primary-foreground/60 hover:text-secondary transition-colors">
+              <Link to="/privacy-policy" className="text-primary-foreground/60 hover:text-secondary transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-secondary transition-colors">
+              </Link>
+              <Link to="/terms-and-conditions" className="text-primary-foreground/60 hover:text-secondary transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-primary-foreground/60 hover:text-secondary transition-colors">
+              </Link>
+              <Link to="/cancellation-policy" className="text-primary-foreground/60 hover:text-secondary transition-colors">
                 Cancellation Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>

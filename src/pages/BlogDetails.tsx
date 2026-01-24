@@ -198,11 +198,58 @@ const BlogDetails = () => {
     <main className="min-h-screen">
       <Navbar />
 
-      <PageHeader
-        title={post.title}
-        subtitle={post.excerpt}
-        backgroundImage={post.image}
-      />
+      {/* Hero Section with Blog Title on Image */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={post.image}
+            alt={post.title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/60 to-primary/80" />
+        </div>
+
+        {/* Title Content - Positioned on Image */}
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <span
+            data-aos="fade-up"
+            className="inline-block text-secondary font-medium text-sm uppercase tracking-wider mb-4"
+          >
+            Blog
+          </span>
+          <h1
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 max-w-4xl mx-auto"
+          >
+            {post.title}
+          </h1>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-primary-foreground/90 text-lg max-w-2xl mx-auto"
+          >
+            {post.excerpt}
+          </p>
+        </div>
+
+        {/* Decorative Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg
+            viewBox="0 0 1440 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-auto"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+              className="fill-background"
+            />
+          </svg>
+        </div>
+      </section>
 
       {/* Article Content with Sidebar */}
       <section className="py-16 bg-background">
@@ -239,7 +286,8 @@ const BlogDetails = () => {
                 </div>
               </div>
 
-              {/* Featured Image */}
+              {/* Featured Image - Removed as title is now on image */}
+              {/* 
               <div
                 data-aos="fade-up"
                 data-aos-delay="100"
@@ -251,6 +299,7 @@ const BlogDetails = () => {
                   className="w-full h-[400px] object-cover"
                 />
               </div>
+              */}
 
               {/* Content */}
               <div
