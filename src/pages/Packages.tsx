@@ -123,12 +123,12 @@ const Packages = () => {
               <div
                 key={pkg.id}
                 data-aos="fade-up"
-                className={`grid lg:grid-cols-2 gap-8 items-center ${
+                className={`grid lg:grid-cols-2 gap-8 items-start ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
               >
                 {/* Image */}
-                <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                <div className={`relative lg:sticky lg:top-24 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                   <div className="relative rounded-2xl overflow-hidden shadow-elevated">
                     <img
                       src={pkg.image}

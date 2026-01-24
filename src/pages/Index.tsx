@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { BookingForm } from "@/components/BookingForm";
 import { AboutSection } from "@/components/AboutSection";
 import { TourPackagesSection } from "@/components/TourPackagesSection";
 import { GallerySection } from "@/components/GallerySection";
@@ -26,6 +27,7 @@ const Index = () => {
     <main className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <BookingForm />
       <AboutSection />
       <TourPackagesSection />
       <GallerySection />

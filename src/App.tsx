@@ -13,6 +13,9 @@ import Gallery from "./pages/Gallery";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import CancellationPolicy from "./pages/CancellationPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +37,9 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/cancellation-policy" element={<CancellationPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

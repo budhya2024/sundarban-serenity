@@ -26,6 +26,23 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,17 +54,17 @@ export const Navbar = () => {
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group z-50">
             <div className="relative">
               <TreePine
                 className={`w-8 h-8 transition-colors duration-300 ${
-                  isScrolled ? "text-primary" : "text-primary-foreground"
+                  isScrolled || isOpen ? "text-primary" : "text-primary-foreground"
                 }`}
               />
             </div>
             <span
               className={`font-display text-xl font-bold transition-colors duration-300 ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+                isScrolled || isOpen ? "text-foreground" : "text-primary-foreground"
               }`}
             >
               Sundarban<span className="text-secondary">Tours</span>
@@ -85,8 +102,8 @@ export const Navbar = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 transition-colors ${
-              isScrolled ? "text-foreground" : "text-primary-foreground"
+            className={`lg:hidden p-2 transition-colors z-50 ${
+              isScrolled || isOpen ? "text-foreground" : "text-primary-foreground"
             }`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -94,35 +111,49 @@ export const Navbar = () => {
         </nav>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Full Screen from Left */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-background border-t border-border"
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed inset-0 top-0 left-0 w-full h-screen bg-background z-40 lg:hidden"
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <Link
+            <div className="flex flex-col justify-center items-center h-full gap-6 px-8">
+              {navLinks.map((link, index) => (
+                <motion.div
                   key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`px-4 py-3 rounded-lg font-medium transition-colors ${
-                    location.pathname === link.path
-                      ? "bg-primary text-primary-foreground"
-                      : "text-foreground hover:bg-muted"
-                  }`}
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  {link.name}
-                </Link>
+                  <Link
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-2xl font-display font-semibold transition-colors ${
+                      location.pathname === link.path
+                        ? "text-secondary"
+                        : "text-foreground hover:text-secondary"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
-              <Button variant="hero" size="lg" className="mt-2" asChild>
-                <Link to="/packages" onClick={() => setIsOpen(false)}>
-                  Book Now
-                </Link>
-              </Button>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="mt-8"
+              >
+                <Button variant="hero" size="xl" asChild>
+                  <Link to="/packages" onClick={() => setIsOpen(false)}>
+                    Book Now
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
           </motion.div>
         )}
