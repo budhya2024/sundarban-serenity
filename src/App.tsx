@@ -9,6 +9,7 @@ import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Packages from "./pages/Packages";
+import PackageDetails from "./pages/PackageDetails";
 import Gallery from "./pages/Gallery";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/packages" element={<Packages />} />
+          <Route path="/packages/:packageId" element={<PackageDetails />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogDetails />} />

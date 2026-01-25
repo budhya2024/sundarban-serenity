@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Calendar, Facebook, Instagram, Twitter, Youtube, Send } from "lucide-react";
+import { Calendar, Send } from "lucide-react";
+import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "@/components/icons/SocialIcons";
 
 interface BlogPost {
   id: string;
@@ -91,27 +92,27 @@ export const BlogSidebar = ({ latestPosts, currentPostId }: BlogSidebarProps) =>
         <div className="flex gap-3">
           <a
             href="#"
-            className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
+            className="w-10 h-10 rounded-full bg-[hsl(221,44%,41%)] text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity"
           >
-            <Facebook className="w-5 h-5" />
+            <FacebookIcon className="w-5 h-5" />
           </a>
           <a
             href="#"
-            className="w-10 h-10 rounded-full bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
+            className="w-10 h-10 rounded-full bg-gradient-to-br from-[hsl(280,100%,44%)] via-[hsl(350,100%,55%)] to-[hsl(28,95%,59%)] text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity"
           >
-            <Instagram className="w-5 h-5" />
+            <InstagramIcon className="w-5 h-5" />
           </a>
           <a
             href="#"
-            className="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
+            className="w-10 h-10 rounded-full bg-[hsl(0,0%,0%)] text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity"
           >
-            <Twitter className="w-5 h-5" />
+            <TwitterIcon className="w-5 h-5" />
           </a>
           <a
             href="#"
-            className="w-10 h-10 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
+            className="w-10 h-10 rounded-full bg-[hsl(0,100%,50%)] text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity"
           >
-            <Youtube className="w-5 h-5" />
+            <YoutubeIcon className="w-5 h-5" />
           </a>
         </div>
       </div>

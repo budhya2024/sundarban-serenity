@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, TreePine } from "lucide-react";
+import { Menu, X, TreePine, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const tourPackages = [
+  { name: "Day Trip Package", path: "/packages/day-trip", description: "Quick 1-day safari experience" },
+  { name: "Weekend Getaway", path: "/packages/weekend", description: "2 Days / 1 Night adventure" },
+  { name: "Premium Safari", path: "/packages/premium", description: "3 Days / 2 Nights luxury tour" },
+  { name: "Adventure Expedition", path: "/packages/adventure", description: "4 Days / 3 Nights expedition" },
+];
 
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
-  { name: "Tour Packages", path: "/packages" },
+  { name: "Tour Packages", path: "/packages", hasDropdown: true },
   { name: "Gallery", path: "/gallery" },
   { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
@@ -16,6 +23,8 @@ const navLinks = [
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobilePackagesOpen, setIsMobilePackagesOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -29,6 +38,8 @@ export const Navbar = () => {
   // Close mobile menu on route change
   useEffect(() => {
     setIsOpen(false);
+    setIsDropdownOpen(false);
+    setIsMobilePackagesOpen(false);
   }, [location.pathname]);
 
   // Prevent body scroll when mobile menu is open
@@ -74,21 +85,73 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`relative font-medium transition-colors duration-300 hover:text-secondary ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                } ${location.pathname === link.path ? "text-secondary" : ""}`}
-              >
-                {link.name}
-                {location.pathname === link.path && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-secondary rounded-full"
-                  />
+              <div key={link.path} className="relative">
+                {link.hasDropdown ? (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setIsDropdownOpen(true)}
+                    onMouseLeave={() => setIsDropdownOpen(false)}
+                  >
+                    <button
+                      className={`flex items-center gap-1 font-medium transition-colors duration-300 hover:text-secondary ${
+                        isScrolled ? "text-foreground" : "text-primary-foreground"
+                      } ${location.pathname.startsWith("/packages") ? "text-secondary" : ""}`}
+                    >
+                      {link.name}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    
+                    {/* Dropdown Menu */}
+                    <AnimatePresence>
+                      {isDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          transition={{ duration: 0.2 }}
+                          className="absolute top-full left-0 pt-2 w-64"
+                        >
+                          <div className="bg-card rounded-xl shadow-elevated border border-border overflow-hidden">
+                            {/* View All Packages Link */}
+                            <Link
+                              to="/packages"
+                              className="block px-4 py-3 hover:bg-muted transition-colors border-b border-border"
+                            >
+                              <span className="font-medium text-foreground">All Packages</span>
+                              <p className="text-xs text-muted-foreground mt-0.5">View all tour options</p>
+                            </Link>
+                            {tourPackages.map((pkg) => (
+                              <Link
+                                key={pkg.path}
+                                to={pkg.path}
+                                className="block px-4 py-3 hover:bg-muted transition-colors"
+                              >
+                                <span className="font-medium text-foreground">{pkg.name}</span>
+                                <p className="text-xs text-muted-foreground mt-0.5">{pkg.description}</p>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link
+                    to={link.path}
+                    className={`relative font-medium transition-colors duration-300 hover:text-secondary ${
+                      isScrolled ? "text-foreground" : "text-primary-foreground"
+                    } ${location.pathname === link.path ? "text-secondary" : ""}`}
+                  >
+                    {link.name}
+                    {location.pathname === link.path && (
+                      <motion.div
+                        layoutId="navbar-indicator"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-secondary rounded-full"
+                      />
+                    )}
+                  </Link>
                 )}
-              </Link>
+              </div>
             ))}
           </div>
 
@@ -128,18 +191,63 @@ export const Navbar = () => {
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
+                  className="w-full text-center"
                 >
-                  <Link
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`text-2xl font-display font-semibold transition-colors ${
-                      location.pathname === link.path
-                        ? "text-secondary"
-                        : "text-foreground hover:text-secondary"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
+                  {link.hasDropdown ? (
+                    <div>
+                      <button
+                        onClick={() => setIsMobilePackagesOpen(!isMobilePackagesOpen)}
+                        className={`text-2xl font-display font-semibold transition-colors flex items-center justify-center gap-2 mx-auto ${
+                          location.pathname.startsWith("/packages")
+                            ? "text-secondary"
+                            : "text-foreground hover:text-secondary"
+                        }`}
+                      >
+                        {link.name}
+                        <ChevronDown className={`w-5 h-5 transition-transform duration-200 ${isMobilePackagesOpen ? "rotate-180" : ""}`} />
+                      </button>
+                      <AnimatePresence>
+                        {isMobilePackagesOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden mt-4 space-y-3"
+                          >
+                            <Link
+                              to="/packages"
+                              onClick={() => setIsOpen(false)}
+                              className="block text-lg text-muted-foreground hover:text-secondary transition-colors"
+                            >
+                              All Packages
+                            </Link>
+                            {tourPackages.map((pkg) => (
+                              <Link
+                                key={pkg.path}
+                                to={pkg.path}
+                                onClick={() => setIsOpen(false)}
+                                className="block text-lg text-muted-foreground hover:text-secondary transition-colors"
+                              >
+                                {pkg.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`text-2xl font-display font-semibold transition-colors ${
+                        location.pathname === link.path
+                          ? "text-secondary"
+                          : "text-foreground hover:text-secondary"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
               <motion.div

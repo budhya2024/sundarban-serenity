@@ -3,10 +3,10 @@ import { useParams, Link } from "react-router-dom";
 import AOS from "aos";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { PageHeader } from "@/components/PageHeader";
 import { BlogSidebar } from "@/components/BlogSidebar";
 import { Button } from "@/components/ui/button";
-import { Calendar, User, Clock, ArrowLeft, Share2, Facebook, Twitter } from "lucide-react";
+import { Calendar, User, Clock, ArrowLeft, Share2 } from "lucide-react";
+import { FacebookIcon, TwitterIcon } from "@/components/icons/SocialIcons";
 import galleryTiger from "@/assets/gallery-tiger.jpg";
 import galleryBoat from "@/assets/gallery-boat.jpg";
 import galleryBird from "@/assets/gallery-bird.jpg";
@@ -198,58 +198,8 @@ const BlogDetails = () => {
     <main className="min-h-screen">
       <Navbar />
 
-      {/* Hero Section with Blog Title on Image */}
-      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/60 to-primary/80" />
-        </div>
-
-        {/* Title Content - Positioned on Image */}
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <span
-            data-aos="fade-up"
-            className="inline-block text-secondary font-medium text-sm uppercase tracking-wider mb-4"
-          >
-            Blog
-          </span>
-          <h1
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 max-w-4xl mx-auto"
-          >
-            {post.title}
-          </h1>
-          <p
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="text-primary-foreground/90 text-lg max-w-2xl mx-auto"
-          >
-            {post.excerpt}
-          </p>
-        </div>
-
-        {/* Decorative Wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            viewBox="0 0 1440 120"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto"
-            preserveAspectRatio="none"
-          >
-            <path
-              d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
-              className="fill-background"
-            />
-          </svg>
-        </div>
-      </section>
+      {/* Spacer for fixed navbar */}
+      <div className="h-20" />
 
       {/* Article Content with Sidebar */}
       <section className="py-16 bg-background">
@@ -261,50 +211,72 @@ const BlogDetails = () => {
               <Link
                 to="/blog"
                 data-aos="fade-right"
-                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-8 font-medium"
+                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 mb-6 font-medium"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back to Blog
               </Link>
 
-              {/* Meta */}
+              {/* Author Info - Top */}
               <div
                 data-aos="fade-up"
-                className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8 pb-8 border-b border-border"
+                className="flex flex-wrap items-center gap-6 text-muted-foreground mb-6"
               >
                 <div className="flex items-center gap-2">
-                  <User className="w-5 h-5" />
-                  {post.author}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-5 h-5" />
-                  {post.date}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Clock className="w-5 h-5" />
-                  {post.readTime}
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <User className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <span className="font-medium text-foreground">{post.author}</span>
+                    <div className="flex items-center gap-3 text-sm">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {post.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {post.readTime}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Featured Image - Removed as title is now on image */}
-              {/* 
+              {/* Featured Image with Title Overlay */}
               <div
                 data-aos="fade-up"
-                data-aos-delay="100"
-                className="mb-10 rounded-2xl overflow-hidden shadow-elevated"
+                className="relative mb-10 rounded-2xl overflow-hidden shadow-elevated"
               >
                 <img
                   src={post.image}
                   alt={post.title}
                   className="w-full h-[400px] object-cover"
                 />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
+                
+                {/* Title on Image */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <span className="inline-block text-secondary font-medium text-sm uppercase tracking-wider mb-2">
+                    Blog
+                  </span>
+                  <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground">
+                    {post.title}
+                  </h1>
+                </div>
               </div>
-              */}
+
+              {/* Excerpt */}
+              <p
+                data-aos="fade-up"
+                className="text-lg text-muted-foreground mb-8 italic border-l-4 border-secondary pl-4"
+              >
+                {post.excerpt}
+              </p>
 
               {/* Content */}
               <div
                 data-aos="fade-up"
-                data-aos-delay="200"
                 className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-primary prose-strong:text-foreground prose-ul:text-muted-foreground"
                 dangerouslySetInnerHTML={{ __html: post.content }}
               />
@@ -319,11 +291,11 @@ const BlogDetails = () => {
                     <Share2 className="w-5 h-5" />
                     Share this article:
                   </span>
-                  <button className="w-10 h-10 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                    <Facebook className="w-5 h-5" />
+                  <button className="w-10 h-10 rounded-full bg-[hsl(221,44%,41%)] text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity">
+                    <FacebookIcon className="w-5 h-5" />
                   </button>
-                  <button className="w-10 h-10 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center hover:opacity-90 transition-opacity">
-                    <Twitter className="w-5 h-5" />
+                  <button className="w-10 h-10 rounded-full bg-[hsl(0,0%,0%)] text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity">
+                    <TwitterIcon className="w-5 h-5" />
                   </button>
                 </div>
               </div>
