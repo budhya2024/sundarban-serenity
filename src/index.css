@@ -4,110 +4,111 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 
-/* Sundarban Travel Agency Design System */
+/* Sundarban Bengal Trip Design System - Based on Logo Colors */
 @layer base {
   :root {
-    /* Nature-inspired palette */
-    --background: 45 30% 97%;
-    --foreground: 150 30% 15%;
+    /* Logo-inspired palette: Lime green, bright green, golden amber, dark teal */
+    --background: 200 15% 96%;
+    --foreground: 200 30% 15%;
 
-    --card: 45 25% 95%;
-    --card-foreground: 150 30% 15%;
+    --card: 200 10% 98%;
+    --card-foreground: 200 30% 15%;
 
-    --popover: 45 30% 97%;
-    --popover-foreground: 150 30% 15%;
+    --popover: 200 15% 96%;
+    --popover-foreground: 200 30% 15%;
 
-    /* Deep forest green */
-    --primary: 150 45% 23%;
-    --primary-foreground: 45 30% 97%;
+    /* Primary: Bright lime-green from logo */
+    --primary: 85 75% 45%;
+    --primary-foreground: 200 30% 10%;
 
-    /* Warm amber/gold */
-    --secondary: 35 80% 55%;
-    --secondary-foreground: 150 30% 15%;
+    /* Secondary: Golden amber from "TRIP" text */
+    --secondary: 42 90% 50%;
+    --secondary-foreground: 200 30% 10%;
 
-    /* Soft sage */
-    --muted: 150 15% 90%;
-    --muted-foreground: 150 20% 40%;
+    /* Muted: Soft gray-blue */
+    --muted: 200 15% 92%;
+    --muted-foreground: 200 20% 45%;
 
-    /* Teal accent */
-    --accent: 175 50% 35%;
-    --accent-foreground: 45 30% 97%;
+    /* Accent: Teal from background */
+    --accent: 195 35% 30%;
+    --accent-foreground: 200 10% 98%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 45 30% 97%;
+    --destructive-foreground: 200 10% 98%;
 
-    --border: 150 20% 85%;
-    --input: 150 20% 85%;
-    --ring: 150 45% 23%;
+    --border: 200 15% 88%;
+    --input: 200 15% 88%;
+    --ring: 85 75% 45%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens for Sundarban theme */
-    --forest: 150 45% 23%;
-    --forest-light: 150 35% 35%;
-    --amber: 35 80% 55%;
-    --amber-dark: 30 70% 45%;
-    --teal: 175 50% 35%;
-    --cream: 45 30% 97%;
-    --earth: 25 30% 35%;
+    /* Custom tokens for Sundarban Bengal Trip theme */
+    --lime: 85 75% 45%;
+    --lime-light: 80 70% 55%;
+    --lime-dark: 90 70% 35%;
+    --amber: 42 90% 50%;
+    --amber-dark: 38 85% 42%;
+    --teal: 195 35% 30%;
+    --teal-dark: 200 35% 20%;
+    --cream: 200 15% 96%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(150 45% 23% / 0.9), hsl(175 50% 35% / 0.8));
-    --gradient-golden: linear-gradient(135deg, hsl(35 80% 55%), hsl(30 70% 45%));
-    --gradient-forest: linear-gradient(180deg, hsl(150 45% 23%), hsl(150 35% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(195 35% 20% / 0.92), hsl(200 30% 15% / 0.88));
+    --gradient-golden: linear-gradient(135deg, hsl(42 90% 50%), hsl(38 85% 42%));
+    --gradient-lime: linear-gradient(135deg, hsl(85 75% 45%), hsl(80 70% 55%));
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(150 30% 15% / 0.1);
-    --shadow-elevated: 0 10px 40px -10px hsl(150 30% 15% / 0.2);
-    --shadow-glow: 0 0 30px hsl(35 80% 55% / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(200 30% 15% / 0.1);
+    --shadow-elevated: 0 10px 40px -10px hsl(200 30% 15% / 0.2);
+    --shadow-glow: 0 0 30px hsl(85 75% 45% / 0.3);
 
-    --sidebar-background: 150 25% 95%;
-    --sidebar-foreground: 150 30% 15%;
-    --sidebar-primary: 150 45% 23%;
-    --sidebar-primary-foreground: 45 30% 97%;
-    --sidebar-accent: 150 15% 90%;
-    --sidebar-accent-foreground: 150 30% 15%;
-    --sidebar-border: 150 20% 85%;
-    --sidebar-ring: 150 45% 23%;
+    --sidebar-background: 200 15% 95%;
+    --sidebar-foreground: 200 30% 15%;
+    --sidebar-primary: 85 75% 45%;
+    --sidebar-primary-foreground: 200 30% 10%;
+    --sidebar-accent: 200 15% 90%;
+    --sidebar-accent-foreground: 200 30% 15%;
+    --sidebar-border: 200 15% 88%;
+    --sidebar-ring: 85 75% 45%;
   }
 
   .dark {
-    --background: 150 30% 8%;
-    --foreground: 45 25% 95%;
+    --background: 200 30% 8%;
+    --foreground: 200 15% 95%;
 
-    --card: 150 25% 12%;
-    --card-foreground: 45 25% 95%;
+    --card: 200 25% 12%;
+    --card-foreground: 200 15% 95%;
 
-    --popover: 150 30% 8%;
-    --popover-foreground: 45 25% 95%;
+    --popover: 200 30% 8%;
+    --popover-foreground: 200 15% 95%;
 
-    --primary: 150 40% 50%;
-    --primary-foreground: 150 30% 8%;
+    --primary: 85 70% 50%;
+    --primary-foreground: 200 30% 8%;
 
-    --secondary: 35 70% 50%;
-    --secondary-foreground: 150 30% 8%;
+    --secondary: 42 85% 55%;
+    --secondary-foreground: 200 30% 8%;
 
-    --muted: 150 20% 20%;
-    --muted-foreground: 150 15% 65%;
+    --muted: 200 20% 18%;
+    --muted-foreground: 200 15% 60%;
 
-    --accent: 175 45% 45%;
-    --accent-foreground: 150 30% 8%;
+    --accent: 195 40% 45%;
+    --accent-foreground: 200 30% 8%;
 
     --destructive: 0 62.8% 50%;
-    --destructive-foreground: 45 25% 95%;
+    --destructive-foreground: 200 15% 95%;
 
-    --border: 150 20% 20%;
-    --input: 150 20% 20%;
-    --ring: 150 40% 50%;
+    --border: 200 20% 18%;
+    --input: 200 20% 18%;
+    --ring: 85 70% 50%;
 
-    --sidebar-background: 150 25% 10%;
-    --sidebar-foreground: 45 25% 95%;
-    --sidebar-primary: 150 40% 50%;
-    --sidebar-primary-foreground: 150 30% 8%;
-    --sidebar-accent: 150 20% 18%;
-    --sidebar-accent-foreground: 45 25% 95%;
-    --sidebar-border: 150 20% 18%;
-    --sidebar-ring: 150 40% 50%;
+    --sidebar-background: 200 25% 10%;
+    --sidebar-foreground: 200 15% 95%;
+    --sidebar-primary: 85 70% 50%;
+    --sidebar-primary-foreground: 200 30% 8%;
+    --sidebar-accent: 200 20% 16%;
+    --sidebar-accent-foreground: 200 15% 95%;
+    --sidebar-border: 200 20% 16%;
+    --sidebar-ring: 85 70% 50%;
   }
 }
 
