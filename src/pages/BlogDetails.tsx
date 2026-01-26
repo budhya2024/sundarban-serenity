@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import AOS from "aos";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { PageHeader } from "@/components/PageHeader";
 import { BlogSidebar } from "@/components/BlogSidebar";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, Clock, ArrowLeft, Share2 } from "lucide-react";
@@ -198,8 +199,11 @@ const BlogDetails = () => {
     <main className="min-h-screen">
       <Navbar />
 
-      {/* Spacer for fixed navbar */}
-      <div className="h-20" />
+      <PageHeader
+        title="Travel Blog"
+        subtitle="Stories, tips, and insights from our Sundarban adventures"
+        backgroundImage={post.image}
+      />
 
       {/* Article Content with Sidebar */}
       <section className="py-16 bg-background">
@@ -217,10 +221,18 @@ const BlogDetails = () => {
                 Back to Blog
               </Link>
 
-              {/* Author Info - Top */}
+              {/* Blog Title */}
+              <h1
+                data-aos="fade-up"
+                className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-6"
+              >
+                {post.title}
+              </h1>
+
+              {/* Author Info */}
               <div
                 data-aos="fade-up"
-                className="flex flex-wrap items-center gap-6 text-muted-foreground mb-6"
+                className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -242,7 +254,7 @@ const BlogDetails = () => {
                 </div>
               </div>
 
-              {/* Featured Image with Title Overlay */}
+              {/* Featured Image */}
               <div
                 data-aos="fade-up"
                 className="relative mb-10 rounded-2xl overflow-hidden shadow-elevated"
@@ -252,18 +264,6 @@ const BlogDetails = () => {
                   alt={post.title}
                   className="w-full h-[400px] object-cover"
                 />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/30 to-transparent" />
-                
-                {/* Title on Image */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                  <span className="inline-block text-secondary font-medium text-sm uppercase tracking-wider mb-2">
-                    Blog
-                  </span>
-                  <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground">
-                    {post.title}
-                  </h1>
-                </div>
               </div>
 
               {/* Excerpt */}
