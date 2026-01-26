@@ -118,18 +118,18 @@ export const BlogSidebar = ({ latestPosts, currentPostId }: BlogSidebarProps) =>
       </div>
 
       {/* Newsletter */}
-      <div className="bg-primary rounded-2xl p-6 shadow-soft" data-aos="fade-left" data-aos-delay="300">
-        <h3 className="font-display text-xl font-bold text-primary-foreground mb-3">
+      <div className="bg-accent rounded-2xl p-6 shadow-soft" data-aos="fade-left" data-aos-delay="300">
+        <h3 className="font-display text-xl font-bold text-accent-foreground mb-3">
           Newsletter
         </h3>
-        <p className="text-primary-foreground/80 text-sm mb-4">
+        <p className="text-accent-foreground/80 text-sm mb-4">
           Subscribe to get the latest travel tips and tour updates.
         </p>
         <form className="space-y-3">
           <Input
             type="email"
             placeholder="Your email address"
-            className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50"
+            className="bg-accent-foreground/10 border-accent-foreground/20 text-accent-foreground placeholder:text-accent-foreground/50"
           />
           <Button variant="hero" className="w-full">
             <Send className="w-4 h-4 mr-2" />

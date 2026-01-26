@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, TreePine, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logo from "@/assets/logo.jpg";
 
 const tourPackages = [
   { name: "Day Trip Package", path: "/packages/day-trip", description: "Quick 1-day safari experience" },
@@ -66,20 +67,11 @@ export const Navbar = () => {
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group z-50">
-            <div className="relative">
-              <TreePine
-                className={`w-8 h-8 transition-colors duration-300 ${
-                  isScrolled || isOpen ? "text-primary" : "text-primary-foreground"
-                }`}
-              />
-            </div>
-            <span
-              className={`font-display text-xl font-bold transition-colors duration-300 ${
-                isScrolled || isOpen ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              Sundarban<span className="text-secondary">Tours</span>
-            </span>
+            <img 
+              src={logo} 
+              alt="Sundarban Bengal Trip" 
+              className="h-10 md:h-12 object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -93,9 +85,9 @@ export const Navbar = () => {
                     onMouseLeave={() => setIsDropdownOpen(false)}
                   >
                     <button
-                      className={`flex items-center gap-1 font-medium transition-colors duration-300 hover:text-secondary ${
-                        isScrolled ? "text-foreground" : "text-primary-foreground"
-                      } ${location.pathname.startsWith("/packages") ? "text-secondary" : ""}`}
+                      className={`flex items-center gap-1 font-medium transition-colors duration-300 hover:text-primary ${
+                        isScrolled ? "text-foreground" : "text-white"
+                      } ${location.pathname.startsWith("/packages") ? "text-primary" : ""}`}
                     >
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""}`} />
@@ -138,15 +130,15 @@ export const Navbar = () => {
                 ) : (
                   <Link
                     to={link.path}
-                    className={`relative font-medium transition-colors duration-300 hover:text-secondary ${
-                      isScrolled ? "text-foreground" : "text-primary-foreground"
-                    } ${location.pathname === link.path ? "text-secondary" : ""}`}
+                    className={`relative font-medium transition-colors duration-300 hover:text-primary ${
+                      isScrolled ? "text-foreground" : "text-white"
+                    } ${location.pathname === link.path ? "text-primary" : ""}`}
                   >
                     {link.name}
                     {location.pathname === link.path && (
                       <motion.div
                         layoutId="navbar-indicator"
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-secondary rounded-full"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full"
                       />
                     )}
                   </Link>
@@ -166,7 +158,7 @@ export const Navbar = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`lg:hidden p-2 transition-colors z-50 ${
-              isScrolled || isOpen ? "text-foreground" : "text-primary-foreground"
+              isScrolled || isOpen ? "text-foreground" : "text-white"
             }`}
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -185,6 +177,13 @@ export const Navbar = () => {
             className="fixed inset-0 top-0 left-0 w-full h-screen bg-background z-40 lg:hidden"
           >
             <div className="flex flex-col justify-center items-center h-full gap-6 px-8">
+              {/* Mobile Logo */}
+              <img 
+                src={logo} 
+                alt="Sundarban Bengal Trip" 
+                className="h-16 object-contain mb-4"
+              />
+              
               {navLinks.map((link, index) => (
                 <motion.div
                   key={link.path}
@@ -199,8 +198,8 @@ export const Navbar = () => {
                         onClick={() => setIsMobilePackagesOpen(!isMobilePackagesOpen)}
                         className={`text-2xl font-display font-semibold transition-colors flex items-center justify-center gap-2 mx-auto ${
                           location.pathname.startsWith("/packages")
-                            ? "text-secondary"
-                            : "text-foreground hover:text-secondary"
+                            ? "text-primary"
+                            : "text-foreground hover:text-primary"
                         }`}
                       >
                         {link.name}
@@ -217,7 +216,7 @@ export const Navbar = () => {
                             <Link
                               to="/packages"
                               onClick={() => setIsOpen(false)}
-                              className="block text-lg text-muted-foreground hover:text-secondary transition-colors"
+                              className="block text-lg text-muted-foreground hover:text-primary transition-colors"
                             >
                               All Packages
                             </Link>
@@ -226,7 +225,7 @@ export const Navbar = () => {
                                 key={pkg.path}
                                 to={pkg.path}
                                 onClick={() => setIsOpen(false)}
-                                className="block text-lg text-muted-foreground hover:text-secondary transition-colors"
+                                className="block text-lg text-muted-foreground hover:text-primary transition-colors"
                               >
                                 {pkg.name}
                               </Link>
@@ -241,8 +240,8 @@ export const Navbar = () => {
                       onClick={() => setIsOpen(false)}
                       className={`text-2xl font-display font-semibold transition-colors ${
                         location.pathname === link.path
-                          ? "text-secondary"
-                          : "text-foreground hover:text-secondary"
+                          ? "text-primary"
+                          : "text-foreground hover:text-primary"
                       }`}
                     >
                       {link.name}

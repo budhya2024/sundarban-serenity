@@ -13,7 +13,7 @@ export const PageHeader = ({ title, subtitle, backgroundImage }: PageHeaderProps
   }, []);
 
   return (
-    <section className="relative pt-32 pb-24 min-h-[400px] flex items-center">
+    <section className="relative pt-32 pb-24 min-h-[450px] flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -21,8 +21,8 @@ export const PageHeader = ({ title, subtitle, backgroundImage }: PageHeaderProps
           alt={title}
           className="w-full h-full object-cover"
         />
-        {/* Green Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/75 to-primary/90" />
+        {/* Dark teal overlay matching logo colors */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[hsl(200,35%,15%)]/90 via-accent/80 to-accent/95" />
       </div>
 
       {/* Content */}
@@ -32,10 +32,10 @@ export const PageHeader = ({ title, subtitle, backgroundImage }: PageHeaderProps
           data-aos-duration="600"
           className="text-center max-w-3xl mx-auto"
         >
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6">
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             {title}
           </h1>
-          <p className="text-lg md:text-xl text-primary-foreground/85">
+          <p className="text-lg md:text-xl text-white/85">
             {subtitle}
           </p>
         </div>
