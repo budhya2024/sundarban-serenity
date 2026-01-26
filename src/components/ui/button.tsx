@@ -15,9 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-md hover:bg-secondary/90",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-secondary via-[hsl(38,85%,47%)] to-secondary text-accent font-bold shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700 hover:shadow-xl",
-        heroOutline: "bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-accent",
-        nature: "bg-primary text-accent font-semibold shadow-md relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
+        hero: "bg-gradient-to-r from-secondary to-amber-dark text-primary-foreground font-bold shadow-lg relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
+        heroOutline: "bg-transparent border-2 border-primary-foreground text-primary-foreground font-bold hover:bg-primary-foreground hover:text-primary",
+        nature: "bg-primary text-primary-foreground shadow-md relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-700",
       },
       size: {
         default: "h-11 px-6 py-2",
