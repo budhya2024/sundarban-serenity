@@ -32,7 +32,7 @@ export const AboutSection = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image */}
@@ -53,7 +53,7 @@ export const AboutSection = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="300"
-              className="absolute -bottom-8 -right-8 bg-card p-6 rounded-xl shadow-elevated max-w-xs"
+              className="absolute -bottom-8 right-0 lg:-right-8 bg-card p-6 rounded-xl shadow-elevated max-w-xs"
             >
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-secondary/20 flex items-center justify-center">
