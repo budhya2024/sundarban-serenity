@@ -111,55 +111,90 @@ export const ExploreSundarbanSection = () => {
                   title="Sundarban Map"
                 />
                 
-                {/* Blinking Markers Overlay */}
+                {/* Blinking Markers Overlay with Location Pins */}
                 <div className="absolute inset-0 pointer-events-none">
                   {/* Sajnekhali Marker */}
-                  <div className="absolute top-[35%] left-[55%]">
-                    <div className="relative">
-                      <span className="flex h-4 w-4">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
+                  <div className="absolute top-[35%] left-[55%] -translate-x-1/2">
+                    <div className="relative flex flex-col items-center">
+                      <span className="bg-card text-foreground text-xs font-semibold px-2 py-1 rounded shadow-md mb-1 whitespace-nowrap">
+                        Sajnekhali
                       </span>
+                      <div className="relative">
+                        <span className="flex h-5 w-5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+                          <span className="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-destructive">
+                            <MapPin className="w-3 h-3 text-white" />
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
                   {/* Sudhanyakhali Marker */}
-                  <div className="absolute top-[30%] left-[65%]">
-                    <div className="relative">
-                      <span className="flex h-4 w-4">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
+                  <div className="absolute top-[30%] left-[65%] -translate-x-1/2">
+                    <div className="relative flex flex-col items-center">
+                      <span className="bg-card text-foreground text-xs font-semibold px-2 py-1 rounded shadow-md mb-1 whitespace-nowrap">
+                        Sudhanyakhali
                       </span>
+                      <div className="relative">
+                        <span className="flex h-5 w-5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+                          <span className="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-destructive">
+                            <MapPin className="w-3 h-3 text-white" />
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
                   {/* Dobanki Marker */}
-                  <div className="absolute top-[45%] left-[50%]">
-                    <div className="relative">
-                      <span className="flex h-4 w-4">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
+                  <div className="absolute top-[45%] left-[50%] -translate-x-1/2">
+                    <div className="relative flex flex-col items-center">
+                      <span className="bg-card text-foreground text-xs font-semibold px-2 py-1 rounded shadow-md mb-1 whitespace-nowrap">
+                        Dobanki
                       </span>
+                      <div className="relative">
+                        <span className="flex h-5 w-5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+                          <span className="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-destructive">
+                            <MapPin className="w-3 h-3 text-white" />
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
                   {/* Netidhopani Marker */}
-                  <div className="absolute top-[55%] left-[60%]">
-                    <div className="relative">
-                      <span className="flex h-4 w-4">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
+                  <div className="absolute top-[55%] left-[60%] -translate-x-1/2">
+                    <div className="relative flex flex-col items-center">
+                      <span className="bg-card text-foreground text-xs font-semibold px-2 py-1 rounded shadow-md mb-1 whitespace-nowrap">
+                        Netidhopani
                       </span>
+                      <div className="relative">
+                        <span className="flex h-5 w-5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+                          <span className="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-destructive">
+                            <MapPin className="w-3 h-3 text-white" />
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                   
                   {/* Pakhiralaya Marker */}
-                  <div className="absolute top-[40%] left-[45%]">
-                    <div className="relative">
-                      <span className="flex h-4 w-4">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-4 w-4 bg-secondary"></span>
+                  <div className="absolute top-[40%] left-[45%] -translate-x-1/2">
+                    <div className="relative flex flex-col items-center">
+                      <span className="bg-card text-foreground text-xs font-semibold px-2 py-1 rounded shadow-md mb-1 whitespace-nowrap">
+                        Pakhiralaya
                       </span>
+                      <div className="relative">
+                        <span className="flex h-5 w-5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75"></span>
+                          <span className="relative inline-flex items-center justify-center rounded-full h-5 w-5 bg-destructive">
+                            <MapPin className="w-3 h-3 text-white" />
+                          </span>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -173,7 +208,9 @@ export const ExploreSundarbanSection = () => {
                 <div className="grid grid-cols-2 gap-3">
                   {highlights.map((place) => (
                     <div key={place.id} className="flex items-center gap-2">
-                      <span className="w-3 h-3 rounded-full bg-secondary animate-pulse" />
+                      <span className="w-4 h-4 rounded-full bg-destructive flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-2.5 h-2.5 text-white" />
+                      </span>
                       <div>
                         <span className="text-sm font-medium text-foreground">
                           {place.name}
