@@ -20,7 +20,8 @@ const packageData = {
     price: "₹2,500",
     rating: 4.6,
     image: tourBudget,
-    description: "Perfect for those short on time, our day trip offers a glimpse of the Sundarbans' wonders. Experience a boat safari through the mangrove channels and visit key watch towers.",
+    description: "Sundarban day trip is the most familiar sundarban tour package now. Tourists are enjoying a lot in this package. But it is very top to cover all sightseeing. Some logical reason for Sundarban tour.",
+    summary: "1 day in Mangrove, Boat safari experience, Pick up & Drop from Kolkata to Kolkata, Tour cost per person Rs. 2500 (No hidden cost)",
     highlights: [
       "Early morning departure from Kolkata",
       "Boat safari through main channels",
@@ -29,15 +30,21 @@ const packageData = {
       "Traditional Bengali lunch included",
       "Return by evening",
     ],
-    itinerary: [
-      { time: "5:00 AM", activity: "Pickup from Kolkata" },
-      { time: "8:00 AM", activity: "Arrive at Godkhali jetty" },
-      { time: "9:00 AM", activity: "Board boat & begin safari" },
-      { time: "11:00 AM", activity: "Visit Sajnekhali Watch Tower" },
-      { time: "1:00 PM", activity: "Lunch on boat" },
-      { time: "2:30 PM", activity: "Continue safari" },
-      { time: "4:30 PM", activity: "Begin return journey" },
-      { time: "8:00 PM", activity: "Drop at Kolkata" },
+    timeline: [
+      {
+        day: "Day 1",
+        title: "1st day in Sundarban",
+        activities: [
+          { time: "5:00 AM", title: "Start from Kolkata", description: "Pickup from designated location (Science City/Indian Museum main gate)" },
+          { time: "8:00 AM", title: "Arrive at Godkhali Jetty", description: "The beautiful landscape covered with yellowish paddy fields, mud house, ponds. Three hours drive to Godkhali with tea break on the way." },
+          { time: "9:00 AM", title: "Board Boat & Begin Safari", description: "Start your mangrove adventure on a comfortable boat through the main channels" },
+          { time: "11:00 AM", title: "Visit Sajnekhali Watch Tower", description: "Explore the famous watch tower and spot wildlife including deer, crocodiles, and various bird species" },
+          { time: "1:00 PM", title: "Lunch on Boat", description: "Enjoy traditional Bengali lunch while cruising through the mangroves" },
+          { time: "2:30 PM", title: "Continue Safari", description: "Afternoon safari session through different channels" },
+          { time: "4:30 PM", title: "Begin Return Journey", description: "Start journey back to Kolkata" },
+          { time: "8:00 PM", title: "Drop at Kolkata", description: "Arrive back at your pickup point" },
+        ],
+      },
     ],
     includes: ["AC transport", "Boat safari", "Forest permits", "Lunch", "Guide"],
     excludes: ["Camera fees", "Personal expenses", "Tips"],
@@ -51,7 +58,8 @@ const packageData = {
     price: "₹5,500",
     rating: 4.8,
     image: tourAdventure,
-    description: "Our most popular package! Spend a night on a comfortable houseboat, enjoy multiple safaris, and maximize your chances of wildlife encounters.",
+    description: "Sundarban tour 1 night 2 days is the most familiar sundarban tour package now. Tourists are enjoying a lot in this package. But it is very top to cover all sightseeing. Some logical reason for Sundarban tour.",
+    summary: "2 days in Mangrove, Night stay at resort/Hotel/Cottage, Pick up & Drop from Kolkata to Kolkata, Tour cost per person Rs. 5500 (No hidden cost)",
     highlights: [
       "Overnight stay on houseboat",
       "Multiple boat safaris",
@@ -60,16 +68,30 @@ const packageData = {
       "All meals provided",
       "Expert naturalist guide",
     ],
-    itinerary: [
-      { time: "Day 1 - 5:00 AM", activity: "Pickup from Kolkata" },
-      { time: "Day 1 - 9:00 AM", activity: "Board houseboat" },
-      { time: "Day 1 - 10:00 AM", activity: "First safari session" },
-      { time: "Day 1 - 1:00 PM", activity: "Lunch & rest" },
-      { time: "Day 1 - 4:00 PM", activity: "Evening safari & sunset" },
-      { time: "Day 1 - 8:00 PM", activity: "Dinner & overnight" },
-      { time: "Day 2 - 6:00 AM", activity: "Morning safari" },
-      { time: "Day 2 - 10:00 AM", activity: "Breakfast & checkout" },
-      { time: "Day 2 - 4:00 PM", activity: "Return to Kolkata" },
+    timeline: [
+      {
+        day: "Day 1",
+        title: "1st day in Sundarban",
+        activities: [
+          { time: "5:00 AM", title: "Start from Kolkata", description: "Pickup from designated location at Indian Museum (main gate)/Science City" },
+          { time: "8:30 AM", title: "Journey to Godkhali", description: "The beautiful landscape covered with yellowish paddy fields, mud house, ponds. Three hours and a half drive to Godkhali. Tea Break on the way." },
+          { time: "9:30 AM", title: "Board Houseboat", description: "Check-in to your comfortable houseboat accommodation" },
+          { time: "10:00 AM", title: "First Safari Session", description: "Morning boat safari through the core zone channels" },
+          { time: "1:00 PM", title: "Lunch & Rest", description: "Delicious Bengali lunch on the houseboat followed by rest" },
+          { time: "4:00 PM", title: "Evening Safari & Sunset", description: "Evening safari with beautiful sunset views over the mangroves" },
+          { time: "8:00 PM", title: "Dinner & Overnight", description: "Traditional dinner and overnight stay on the houseboat" },
+        ],
+      },
+      {
+        day: "Day 2",
+        title: "2nd day in Sundarban",
+        activities: [
+          { time: "6:00 AM", title: "Morning Safari", description: "Early morning safari for best wildlife spotting opportunities" },
+          { time: "10:00 AM", title: "Breakfast & Checkout", description: "Hearty breakfast and checkout from houseboat" },
+          { time: "11:00 AM", title: "Return Journey Begins", description: "Start journey back to Kolkata" },
+          { time: "4:00 PM", title: "Arrive Kolkata", description: "Drop at your designated pickup point" },
+        ],
+      },
     ],
     includes: ["AC transport", "Houseboat stay", "All meals", "2 safaris", "Permits", "Guide"],
     excludes: ["Camera fees", "Alcoholic beverages", "Tips"],
@@ -84,6 +106,7 @@ const packageData = {
     rating: 4.9,
     image: tourPremium,
     description: "The ultimate Sundarbans experience with luxury accommodation, private boat, gourmet meals, and access to remote areas for the best tiger spotting opportunities.",
+    summary: "3 days in Mangrove, Luxury houseboat with AC cabins, Private boat, Gourmet Bengali cuisine, Pick up & Drop from Kolkata, Tour cost per person Rs. 12000 (No hidden cost)",
     highlights: [
       "Luxury houseboat with AC cabins",
       "Private boat for your group",
@@ -92,17 +115,42 @@ const packageData = {
       "Village cultural visit",
       "Gourmet Bengali cuisine",
     ],
-    itinerary: [
-      { time: "Day 1 - 6:00 AM", activity: "Pickup from Kolkata" },
-      { time: "Day 1 - 10:00 AM", activity: "Board luxury houseboat" },
-      { time: "Day 1 - 11:00 AM", activity: "First safari to Sajnekhali" },
-      { time: "Day 1 - 5:00 PM", activity: "Sunset cruise with snacks" },
-      { time: "Day 2 - 5:30 AM", activity: "Early morning safari" },
-      { time: "Day 2 - 12:00 PM", activity: "Visit to local village" },
-      { time: "Day 2 - 4:00 PM", activity: "Deep forest safari" },
-      { time: "Day 3 - 6:00 AM", activity: "Final safari" },
-      { time: "Day 3 - 11:00 AM", activity: "Brunch & checkout" },
-      { time: "Day 3 - 5:00 PM", activity: "Return to Kolkata" },
+    timeline: [
+      {
+        day: "Day 1",
+        title: "1st day in Sundarban",
+        activities: [
+          { time: "6:00 AM", title: "Premium Pickup from Kolkata", description: "Comfortable AC vehicle pickup from your location" },
+          { time: "10:00 AM", title: "Board Luxury Houseboat", description: "Welcome drink and check-in to premium AC cabins" },
+          { time: "11:00 AM", title: "First Safari to Sajnekhali", description: "Visit the famous Sajnekhali watch tower and wildlife museum" },
+          { time: "1:30 PM", title: "Gourmet Lunch", description: "Authentic Bengali cuisine prepared by expert chefs" },
+          { time: "5:00 PM", title: "Sunset Cruise with Snacks", description: "Relaxing evening cruise with tea and snacks" },
+          { time: "8:00 PM", title: "Dinner & Entertainment", description: "Special dinner with local folk performances" },
+        ],
+      },
+      {
+        day: "Day 2",
+        title: "2nd day in Sundarban",
+        activities: [
+          { time: "5:30 AM", title: "Early Morning Safari", description: "Best time for tiger and wildlife spotting" },
+          { time: "9:00 AM", title: "Breakfast", description: "Hearty breakfast on the boat" },
+          { time: "12:00 PM", title: "Visit to Local Village", description: "Experience local culture and honey collection demonstration" },
+          { time: "1:30 PM", title: "Lunch", description: "Fresh seafood and Bengali delicacies" },
+          { time: "4:00 PM", title: "Deep Forest Safari", description: "Explore remote areas of the reserve" },
+          { time: "8:00 PM", title: "Candlelight Dinner", description: "Special dinner under the stars" },
+        ],
+      },
+      {
+        day: "Day 3",
+        title: "3rd day in Sundarban",
+        activities: [
+          { time: "6:00 AM", title: "Final Safari", description: "Last chance for wildlife photography" },
+          { time: "9:00 AM", title: "Breakfast", description: "Final breakfast on the boat" },
+          { time: "11:00 AM", title: "Brunch & Checkout", description: "Farewell brunch and checkout" },
+          { time: "12:00 PM", title: "Return Journey", description: "Start journey back to Kolkata" },
+          { time: "5:00 PM", title: "Arrive Kolkata", description: "Drop at your location" },
+        ],
+      },
     ],
     includes: ["Luxury AC transport", "Premium houseboat", "All gourmet meals", "4 safaris", "Permits", "Expert naturalist", "Village tour"],
     excludes: ["Camera fees", "Personal shopping", "Tips"],
@@ -117,6 +165,7 @@ const packageData = {
     rating: 5.0,
     image: tourAdventure,
     description: "For serious wildlife enthusiasts. This expedition takes you to the most remote areas of Sundarbans with maximum safari time and best chances of tiger sightings.",
+    summary: "4 days in Mangrove, Access to restricted zones, Night safari experience, Camping on secluded island, Expert wildlife photographer guide, Tour cost per person Rs. 18000 (No hidden cost)",
     highlights: [
       "Access to restricted zones",
       "6+ boat safaris",
@@ -125,11 +174,53 @@ const packageData = {
       "Camping on secluded island",
       "Expert wildlife photographer guide",
     ],
-    itinerary: [
-      { time: "Day 1", activity: "Kolkata to Sundarbans, orientation safari" },
-      { time: "Day 2", activity: "Full day safaris to Netidhopani & Dobanki" },
-      { time: "Day 3", activity: "Remote area exploration, night safari" },
-      { time: "Day 4", activity: "Morning safari, return to Kolkata" },
+    timeline: [
+      {
+        day: "Day 1",
+        title: "1st day - Arrival & Orientation",
+        activities: [
+          { time: "5:00 AM", title: "Departure from Kolkata", description: "Early morning pickup for the adventure" },
+          { time: "9:30 AM", title: "Arrive Sundarbans", description: "Board expedition boat and orientation briefing" },
+          { time: "11:00 AM", title: "First Safari", description: "Initial exploration of the mangrove channels" },
+          { time: "2:00 PM", title: "Lunch & Photography Session", description: "Lunch followed by bird photography tips" },
+          { time: "4:00 PM", title: "Evening Safari", description: "Golden hour photography safari" },
+          { time: "8:00 PM", title: "Dinner & Night Briefing", description: "Prepare for tomorrow's deep exploration" },
+        ],
+      },
+      {
+        day: "Day 2",
+        title: "2nd day - Netidhopani & Dobanki",
+        activities: [
+          { time: "5:00 AM", title: "Dawn Safari", description: "Best time for tiger tracking" },
+          { time: "8:00 AM", title: "Breakfast", description: "Energy-packed breakfast" },
+          { time: "10:00 AM", title: "Netidhopani Exploration", description: "Visit the ancient temple ruins and watch tower" },
+          { time: "1:00 PM", title: "Lunch", description: "Packed lunch in the wilderness" },
+          { time: "3:00 PM", title: "Dobanki Canopy Walk", description: "Experience the unique canopy walkway" },
+          { time: "6:00 PM", title: "Sunset Photography", description: "Capture the magical sunset" },
+        ],
+      },
+      {
+        day: "Day 3",
+        title: "3rd day - Remote Exploration & Night Safari",
+        activities: [
+          { time: "5:00 AM", title: "Remote Area Safari", description: "Access restricted zones for serious wildlife viewing" },
+          { time: "10:00 AM", title: "Island Camping Setup", description: "Set up camp on a secluded island" },
+          { time: "12:00 PM", title: "Lunch & Rest", description: "Relax and prepare for night safari" },
+          { time: "4:00 PM", title: "Afternoon Safari", description: "Pre-dusk wildlife activity" },
+          { time: "7:00 PM", title: "Night Safari Experience", description: "Unique night safari with spotlights" },
+          { time: "10:00 PM", title: "Campfire Dinner", description: "Dinner under the stars on the island" },
+        ],
+      },
+      {
+        day: "Day 4",
+        title: "4th day - Final Safari & Return",
+        activities: [
+          { time: "5:00 AM", title: "Final Morning Safari", description: "Last chance for the perfect shot" },
+          { time: "9:00 AM", title: "Breakfast & Pack Up", description: "Break camp and pack up" },
+          { time: "11:00 AM", title: "Return Journey Begins", description: "Start journey back with photo review session" },
+          { time: "5:00 PM", title: "Arrive Kolkata", description: "Drop at your location with memories for lifetime" },
+        ],
+      },
     ],
     includes: ["Premium transport", "Mixed accommodation", "All meals", "6 safaris", "All permits", "Photo guide", "Camping gear"],
     excludes: ["Camera fees", "Insurance", "Tips"],
@@ -190,7 +281,12 @@ const PackageDetails = () => {
               {/* Overview */}
               <div data-aos="fade-up">
                 <h2 className="font-display text-2xl font-bold text-foreground mb-4">Overview</h2>
-                <p className="text-muted-foreground text-lg">{pkg.description}</p>
+                <p className="text-muted-foreground text-lg leading-relaxed">{pkg.description}</p>
+              </div>
+
+              {/* Summary Box */}
+              <div data-aos="fade-up" className="bg-card border-l-4 border-primary p-6 rounded-r-xl shadow-soft">
+                <p className="text-foreground leading-relaxed">{pkg.summary}</p>
               </div>
 
               {/* Quick Info */}
@@ -230,17 +326,23 @@ const PackageDetails = () => {
                 </div>
               </div>
 
-              {/* Itinerary */}
+              {/* Tour Timeline */}
               <div data-aos="fade-up">
-                <h2 className="font-display text-2xl font-bold text-foreground mb-4">Itinerary</h2>
-                <div className="space-y-4">
-                  {pkg.itinerary.map((item, index) => (
-                    <div key={index} className="flex gap-4 items-start">
-                      <div className="w-28 flex-shrink-0">
-                        <span className="text-sm font-medium text-secondary">{item.time}</span>
-                      </div>
-                      <div className="flex-1 pb-4 border-b border-border last:border-0">
-                        <p className="text-foreground">{item.activity}</p>
+                <h2 className="font-display text-2xl font-bold text-foreground mb-6">Tour Timeline</h2>
+                <div className="space-y-8">
+                  {pkg.timeline.map((day, dayIndex) => (
+                    <div key={dayIndex} className="border-l-4 border-primary pl-6">
+                      <h3 className="font-display text-xl font-bold text-foreground mb-4">
+                        {day.day} : {day.title}
+                      </h3>
+                      <div className="space-y-6">
+                        {day.activities.map((activity, actIndex) => (
+                          <div key={actIndex} className="space-y-1">
+                            <span className="text-sm font-semibold text-secondary">{activity.time}</span>
+                            <h4 className="font-semibold text-foreground">{activity.title}</h4>
+                            <p className="text-muted-foreground leading-relaxed">{activity.description}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   ))}
