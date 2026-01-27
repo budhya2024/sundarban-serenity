@@ -4,6 +4,7 @@ import AOS from "aos";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
+import { PopularPackagesSection } from "@/components/PopularPackagesSection";
 import { Button } from "@/components/ui/button";
 import { Check, Clock, Users, MapPin, Calendar, Star, ArrowLeft } from "lucide-react";
 import tourAdventure from "@/assets/tour-adventure.jpg";
@@ -407,6 +408,9 @@ const PackageDetails = () => {
           </div>
         </div>
       </section>
+
+      {/* Popular Packages Section */}
+      <PopularPackagesSection currentPackageId={packageId} />
 
       <Footer />
     </main>
