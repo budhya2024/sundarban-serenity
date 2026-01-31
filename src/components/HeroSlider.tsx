@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 import galleryTiger from "@/assets/gallery-tiger.jpg";
 import galleryCrocodile from "@/assets/gallery-crocodile.jpg";
 import galleryDeer from "@/assets/gallery-deer.jpg";
-import galleryBird from "@/assets/gallery-bird.jpg";
+import galleryBird from "@/assets/2f29fc56f3eac69861f9fc597d5fa775.gif";
 
 const slides = [
   {
@@ -112,7 +112,8 @@ export const HeroSlider = () => {
         }}
         pagination={{
           clickable: true,
-          bulletClass: "swiper-pagination-bullet !w-3 !h-3 !bg-primary-foreground/40 !opacity-100",
+          bulletClass:
+            "swiper-pagination-bullet !w-3 !h-3 !bg-primary-foreground/40 !opacity-100",
           bulletActiveClass: "!bg-secondary !w-8 !rounded-full",
         }}
         loop={true}
@@ -189,17 +190,25 @@ export const HeroSlider = () => {
                         <div className="text-left">
                           <div className="flex items-center gap-2 text-secondary mb-1">
                             <Users className="w-4 h-4" />
-                            <span className="font-display text-2xl md:text-3xl font-bold">50K+</span>
+                            <span className="font-display text-2xl md:text-3xl font-bold">
+                              50K+
+                            </span>
                           </div>
-                          <p className="text-primary-foreground/60 text-sm">Happy Travelers</p>
+                          <p className="text-primary-foreground/60 text-sm">
+                            Happy Travelers
+                          </p>
                         </div>
                         <div className="hidden sm:block w-px h-12 bg-primary-foreground/20" />
                         <div className="text-left">
                           <div className="flex items-center gap-2 text-secondary mb-1">
                             <Star className="w-4 h-4 fill-secondary" />
-                            <span className="font-display text-2xl md:text-3xl font-bold">4.9</span>
+                            <span className="font-display text-2xl md:text-3xl font-bold">
+                              4.9
+                            </span>
                           </div>
-                          <p className="text-primary-foreground/60 text-sm">Rating</p>
+                          <p className="text-primary-foreground/60 text-sm">
+                            Rating
+                          </p>
                         </div>
                       </motion.div>
                     </motion.div>
@@ -233,7 +242,11 @@ export const HeroSlider = () => {
                         {/* Floating Badge */}
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
-                          animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                          animate={
+                            isActive
+                              ? { opacity: 1, y: 0 }
+                              : { opacity: 0, y: 20 }
+                          }
                           transition={{ duration: 0.5, delay: 0.5 }}
                           className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-card px-4 md:px-6 py-3 md:py-4 rounded-xl shadow-xl"
                         >
@@ -244,8 +257,12 @@ export const HeroSlider = () => {
                               </span>
                             </div>
                             <div>
-                              <p className="font-semibold text-foreground text-sm md:text-base">Wildlife Spotlight</p>
-                              <p className="text-xs md:text-sm text-muted-foreground">Must See Experience</p>
+                              <p className="font-semibold text-foreground text-sm md:text-base">
+                                Wildlife Spotlight
+                              </p>
+                              <p className="text-xs md:text-sm text-muted-foreground">
+                                Must See Experience
+                              </p>
                             </div>
                           </div>
                         </motion.div>
