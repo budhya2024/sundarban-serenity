@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import { Shield, Award, Heart, Compass } from "lucide-react";
-import galleryTiger from "@/assets/gallery-tiger.jpg";
+import galleryTiger from "@/assets/bdb854c5503dc026fef98347e8dd89d1.gif";
 
 const features = [
   {
@@ -45,7 +45,7 @@ export const AboutSection = () => {
               <img
                 src={galleryTiger}
                 alt="Royal Bengal Tiger"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-auto object-contain "
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
             </div>

@@ -5,7 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PageHeader } from "@/components/PageHeader";
 import { Shield, Award, Heart, Leaf, Users, Target, Eye } from "lucide-react";
-import galleryTiger from "@/assets/gallery-tiger.jpg";
+import galleryTiger from "@/assets/725c99c0eb67608c3a0870e428cf09d2.gif";
 import galleryBoat from "@/assets/gallery-boat.jpg";
 import heroImage from "@/assets/hero-sundarban.jpg";
 
@@ -13,22 +13,26 @@ const values = [
   {
     icon: Shield,
     title: "Safety First",
-    description: "Your safety is our top priority. Our expert guides and well-maintained equipment ensure a secure adventure.",
+    description:
+      "Your safety is our top priority. Our expert guides and well-maintained equipment ensure a secure adventure.",
   },
   {
     icon: Heart,
     title: "Passion for Nature",
-    description: "We're deeply passionate about the Sundarbans and committed to sharing its wonders responsibly.",
+    description:
+      "We're deeply passionate about the Sundarbans and committed to sharing its wonders responsibly.",
   },
   {
     icon: Leaf,
     title: "Eco-Friendly",
-    description: "We practice sustainable tourism to preserve the fragile ecosystem for future generations.",
+    description:
+      "We practice sustainable tourism to preserve the fragile ecosystem for future generations.",
   },
   {
     icon: Award,
     title: "Excellence",
-    description: "With 15+ years of experience, we deliver exceptional service that exceeds expectations.",
+    description:
+      "With 15+ years of experience, we deliver exceptional service that exceeds expectations.",
   },
 ];
 
@@ -82,36 +86,36 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  Sundarban Tours was founded in 2009 by Rajiv Banerjee, a lifelong 
-                  nature enthusiast who grew up in the villages surrounding the 
-                  Sundarban delta. His deep connection to the land and its wildlife 
-                  inspired him to share this incredible ecosystem with the world.
+                  Sundarban Tours was founded in 2009 by Rajiv Banerjee, a
+                  lifelong nature enthusiast who grew up in the villages
+                  surrounding the Sundarban delta. His deep connection to the
+                  land and its wildlife inspired him to share this incredible
+                  ecosystem with the world.
                 </p>
                 <p>
-                  What started as small group expeditions has grown into the region's 
-                  most trusted travel agency, serving over 50,000 travelers from 
-                  across the globe. Yet, we've never lost sight of our core mission: 
-                  to provide authentic, sustainable, and life-changing experiences.
+                  What started as small group expeditions has grown into the
+                  region's most trusted travel agency, serving over 50,000
+                  travelers from across the globe. Yet, we've never lost sight
+                  of our core mission: to provide authentic, sustainable, and
+                  life-changing experiences.
                 </p>
                 <p>
-                  Today, our team includes experienced naturalists, skilled boat 
-                  operators, and hospitality professionals who share our passion 
+                  Today, our team includes experienced naturalists, skilled boat
+                  operators, and hospitality professionals who share our passion
                   for the Sundarbans and commitment to excellence.
                 </p>
               </div>
             </div>
 
             <div data-aos="fade-left" className="relative">
-              <img
-                src={galleryTiger}
-                alt="Royal Bengal Tiger"
-                className="rounded-2xl shadow-elevated w-full h-[400px] object-cover"
-              />
-              <img
-                src={galleryBoat}
-                alt="Boat Safari"
-                className="absolute -bottom-8 -left-8 w-48 h-48 rounded-xl shadow-elevated object-cover border-4 border-background"
-              />
+              <div className="relative rounded-2xl overflow-hidden shadow-elevated">
+                <img
+                  src={galleryTiger}
+                  alt="Royal Bengal Tiger"
+                  className="w-full h-auto object-contain "
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent scale-x-[-1]" />
+              </div>
             </div>
           </div>
         </div>
@@ -132,8 +136,8 @@ const About = () => {
                 Our Mission
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                To provide safe, authentic, and memorable wildlife experiences 
-                while promoting conservation awareness and supporting local 
+                To provide safe, authentic, and memorable wildlife experiences
+                while promoting conservation awareness and supporting local
                 communities in the Sundarban region.
               </p>
             </div>
@@ -150,9 +154,10 @@ const About = () => {
                 Our Vision
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                To be the leading sustainable tourism operator in the Sundarbans, 
-                recognized globally for our commitment to wildlife conservation, 
-                community development, and exceptional travel experiences.
+                To be the leading sustainable tourism operator in the
+                Sundarbans, recognized globally for our commitment to wildlife
+                conservation, community development, and exceptional travel
+                experiences.
               </p>
             </div>
           </div>
@@ -162,10 +167,7 @@ const About = () => {
       {/* Values */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div
-            data-aos="fade-up"
-            className="text-center mb-16"
-          >
+          <div data-aos="fade-up" className="text-center mb-16">
             <span className="text-secondary font-medium text-sm uppercase tracking-wider">
               Our Values
             </span>
@@ -200,10 +202,7 @@ const About = () => {
       {/* Team */}
       <section className="py-24 bg-primary">
         <div className="container mx-auto px-4">
-          <div
-            data-aos="fade-up"
-            className="text-center mb-16"
-          >
+          <div data-aos="fade-up" className="text-center mb-16">
             <span className="text-secondary font-medium text-sm uppercase tracking-wider">
               Our Team
             </span>
