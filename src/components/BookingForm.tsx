@@ -23,12 +23,12 @@ export const BookingForm = () => {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section className="relative z-20 -mt-24">
       <div className="container mx-auto px-4">
         <div
           data-aos="fade-up"
           data-aos-duration="600"
-          className="bg-card rounded-2xl shadow-elevated p-8 md:p-10 border border-border"
+          className="bg-card rounded-2xl shadow-elevated p-8 md:p-10"
         >
           <div className="text-center mb-8">
             <span className="text-secondary font-medium text-sm uppercase tracking-wider">
@@ -37,9 +37,6 @@ export const BookingForm = () => {
             <h3 className="font-display text-2xl md:text-3xl font-bold text-foreground mt-2">
               Plan Your Adventure
             </h3>
-            <p className="text-muted-foreground mt-2 max-w-md mx-auto">
-              Fill in your details and we'll help you plan the perfect Sundarban experience
-            </p>
           </div>
 
           <form onSubmit={handleSubmit}>

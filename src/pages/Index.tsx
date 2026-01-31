@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Navbar } from "@/components/Navbar";
-import { HeroSlider } from "@/components/HeroSlider";
+import { HeroSection } from "@/components/HeroSection";
 import { BookingForm } from "@/components/BookingForm";
 import { AboutSection } from "@/components/AboutSection";
 import { ExploreSundarbanSection } from "@/components/ExploreSundarbanSection";
@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <main className="min-h-screen">
       <Navbar />
-      <HeroSlider />
+      <HeroSection />
       <BookingForm />
       <AboutSection />
       <ExploreSundarbanSection />
