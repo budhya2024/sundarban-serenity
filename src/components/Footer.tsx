@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import { TreePine, Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { TreePine, Phone, Mail, MapPin } from "lucide-react";
+import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "@/components/icons/SocialIcons";
+import { GoogleIcon } from "@/components/icons/GoogleIcon";
+import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   return (
@@ -14,23 +17,35 @@ export const Footer = () => {
                 Sundarban<span className="text-secondary">Tours</span>
               </span>
             </Link>
-            <p className="text-primary-foreground/80 leading-relaxed mb-6">
+            <p className="text-primary-foreground/80 leading-relaxed mb-4">
               Experience the magic of the world's largest mangrove forest. 
               Witness the Royal Bengal Tiger in its natural habitat and explore 
               the breathtaking biodiversity of the Sundarbans.
             </p>
+            
+            {/* Google Review Button */}
+            <a
+              href="https://g.page/r/YOUR_GOOGLE_REVIEW_LINK/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-primary-foreground text-primary px-4 py-2 rounded-lg hover:bg-secondary hover:text-secondary-foreground transition-colors mb-4"
+            >
+              <GoogleIcon className="w-5 h-5" />
+              <span className="font-medium text-sm">Review us on Google</span>
+            </a>
+            
             <div className="flex gap-4">
               <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors">
-                <Facebook className="w-5 h-5" />
+                <FacebookIcon className="w-5 h-5 fill-current" />
               </a>
               <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors">
-                <Instagram className="w-5 h-5" />
+                <InstagramIcon className="w-5 h-5 fill-current" />
               </a>
               <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors">
-                <Twitter className="w-5 h-5" />
+                <TwitterIcon className="w-5 h-5 fill-current" />
               </a>
               <a href="#" className="p-2 rounded-full bg-primary-foreground/10 hover:bg-secondary transition-colors">
-                <Youtube className="w-5 h-5" />
+                <YoutubeIcon className="w-5 h-5 fill-current" />
               </a>
             </div>
           </div>
